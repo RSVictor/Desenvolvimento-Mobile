@@ -2,7 +2,7 @@
 import 'dart:io'; //permite o usuario entrar com o com os dados
 
 // Função principal do codigo
-Run|Debug
+
 void main(){
   print("Digite seu nome"); // Exibe mensagens solicitando que o usuario digite seu nome
   // null safety
