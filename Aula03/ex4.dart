@@ -1,3 +1,4 @@
+/* Estrutura de repetiçao */
 
 import 'dart:io';
 void main(){
