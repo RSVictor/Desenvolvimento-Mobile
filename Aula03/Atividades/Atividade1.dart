@@ -1,8 +1,7 @@
 // Atividade 1
 
 
-import 'dart:io'; //Permite a entrada de dados cia 
-
+import 'dart:io'; 
 
 void main(){
 
