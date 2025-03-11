@@ -6,7 +6,13 @@ class Animal {
   String raca;
 
   // Construtor
-  Animal({    this.nome,     this.idade,     this.cor,    this.raca,  });
+   // Construtor
+  Animal({
+    required this.nome,
+    required this.idade,
+    required this.cor,
+    required this.raca,
+  });
 
   // Método para exibir as informações do animal
   void mostrarInfo() {
