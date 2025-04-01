@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(const TelaApp()
-  );
+  runApp(const TelaApp());
 }
 
 class TelaApp extends StatelessWidget {
@@ -13,11 +12,13 @@ class TelaApp extends StatelessWidget {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          title: Text("App: ContTech",
-          style: TextStyle(color: Colors.white),),
+          title: const Text(
+            "App: ContTech",
+            style: TextStyle(color: Colors.white),
+          ),
           backgroundColor: Colors.black,
         ),
-        body: Home(),
+        body: const Home(),
       ),
     );
   }
@@ -32,30 +33,27 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   int _counter = 0;
+  String? _msg;
 
   void _incrementCounter() {
-    setState(() {    
+    setState(() {
       _counter++;
     });
   }
-  void _resetCounter(){
-    setState((){
-      _counter=0;
-    });
 
+  void _resetCounter() {
+    setState(() {
+      _counter = 0;
+    });
   }
 
-  String? _msg; // cria uma variavel chamada _msg
-
-   // função para exibir mensagem
-   _exibemsg(){
+  void _exibemsg() {
     setState(() {
-      _msg ="Victor";
+      _msg = "Victor";
     });
-   }
+  }
 
-      // função para limpar o campo de mensagem
-  _limpar(){
+  void _limpar() {
     setState(() {
       _msg = "";
     });
@@ -67,40 +65,75 @@ class _HomeState extends State<Home> {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-           Padding(
+          // Título do contador
+          Padding(
             padding: const EdgeInsets.all(16.0),
-            child: Container(alignment: Alignment.center,
-            width: 200,height: 60,color: Colors.black,
-          // ${_msg} acessa o conteudo da variavel _msg
-          child:Text("Contador",
-          textAlign: TextAlign.center,
-          style: 
-          TextStyle(
-            fontSize: 30,
-            color:
-             Colors.white),),),
-             ),
+            child: Container(
+              alignment: Alignment.center,
+              width: 200,
+              height: 60,
+              color: Colors.black,
+              child: const Text(
+                "Contador",
+                textAlign: TextAlign.center,
+                style: TextStyle(fontSize: 30, color: Colors.white),
+              ),
+            ),
+          ),
           
-        Padding(
+          // Exibindo o valor do contador
+          Padding(
             padding: const EdgeInsets.all(16.0),
-            child: Container(alignment: Alignment.center,
-            width: 200,height: 60,color: Colors.black,
-          // ${_msg} acessa o conteudo da variavel _msg
-          child:Text("${_msg}",
-          textAlign: TextAlign.center,
-          style: 
-          TextStyle(
-            fontSize: 30,
-            color:
-             Colors.white),),),
-             ),
+            child: Container(
+              alignment: Alignment.center,
+              width: 200,
+              height: 60,
+              color: Colors.black,
+              child: Text(
+                "$_counter", // Exibe o valor atual do contador
+                textAlign: TextAlign.center,
+                style: const TextStyle(fontSize: 30, color: Colors.white),
+              ),
+            ),
+          ),
+          
+          // Exibindo a mensagem
+          Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Container(
+              alignment: Alignment.center,
+              width: 200,
+              height: 60,
+              color: Colors.black,
+              child: Text(
+                "$_msg", // Exibe a mensagem armazenada
+                textAlign: TextAlign.center,
+                style: const TextStyle(fontSize: 30, color: Colors.white),
+              ),
+            ),
+          ),
 
-             Column(
-              children: [               
-                 ElevatedButton(onPressed: _exibemsg, child: Text("Exibir nome ")),
-                  ElevatedButton(onPressed: _limpar, child: Text("Limpar")),
-              ],
-             )
+          // Botões para interagir com o contador e mensagem
+          Column(
+            children: [
+              ElevatedButton(
+                onPressed: _incrementCounter, // Incrementa o contador
+                child: const Text("Incrementar Contador"),
+              ),
+              ElevatedButton(
+                onPressed: _resetCounter, // Reseta o contador
+                child: const Text("Resetar Contador"),
+              ),
+              ElevatedButton(
+                onPressed: _exibemsg, // Exibe a mensagem "Victor"
+                child: const Text("Exibir Nome"),
+              ),
+              ElevatedButton(
+                onPressed: _limpar, // Limpa a mensagem
+                child: const Text("Limpar"),
+              ),
+            ],
+          ),
         ],
       ),
     );
